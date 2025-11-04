@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "FCF",
+    "FEF"
+  ],
+  "key": {
+    "C": {
+      "item": "irons_spellbooks:conjurers_talisman"
+    },
+    "E": {
+      "item": "grimoireofgaia:monster_feed"
+    },
+    "F": {
+      "tag": "irons_spellbooks:inscribed_rune"
+    }
+  },
+  "result": {
+    "id": "gogspells:gaia_blessing",
+    "count": 1
+  }
+}

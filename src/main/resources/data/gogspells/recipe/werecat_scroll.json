@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EFE",
+    "SKC",
+    "SPC"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:pufferfish"
+    },
+    "S": {
+      "item": "minecraft:salmon"
+    },
+    "C": {
+      "item": "minecraft:cod"
+    },
+    "E": {
+      "item": "irons_spellbooks:evocation_rune"
+    },
+    "K": {
+      "item": "irons_spellbooks:common_ink"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "irons_spellbooks:scroll",
+    "count": 1,
+    "components": {
+      "irons_spellbooks:spell_container": {
+        "maxSpells": 1,
+        "spellWheel": false,
+        "mustEquip": false,
+        "improved": false,
+        "data": [
+          {
+            "id": "gogspells:summon_werecat",
+            "index": 0,
+            "level": 1,
+            "locked": true
+          }
+        ]
+      }
+    }
+  }
+}

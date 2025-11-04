@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "F F",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "gogspells:ancient_regal_fabric"
+    }
+  },
+  "result": {
+    "id": "irons_spellbooks:magic_cloth",
+    "count": 2
+  }
+}

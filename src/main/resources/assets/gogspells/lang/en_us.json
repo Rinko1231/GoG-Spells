@@ -1,0 +1,43 @@
+{
+  "item_group.gogspells": "GoG Spells: Items",
+  "item.gogspells.ancient_regal_fabric": "Ancient Regal Fabric",
+  "tooltip.item.gogspells.ancient_regal_fabric": "Special drop of Mummy when equipping Blessing of Gaia",
+  "item.gogspells.gaia_blessing": "Blessing of Gaia",
+  "tooltip.item.gogspells.gaia_blessing": "Add bonus drop rate of certain loots when killing certain mobs",
+
+  "entity.gogspells.summoned_ender_dragon_girl": "Summoned Ender Dragon Girl",
+  "entity.gogspells.summoned_nine_tails": "Summoned Nine Tails",
+  "entity.gogspells.summoned_werecat": "Summoned Werecat",
+  "entity.gogspells.summoned_sludge_girl": "Summoned Sludge Girl",
+  "entity.gogspells.summoned_yuki_onna": "Summoned Yuki Onna",
+  "entity.gogspells.summoned_mummy": "Summoned Mummy",
+  "entity.gogspells.summoned_gravemite": "Summoned Gravemite",
+  "entity.gogspells.summoned_valkyrie": "Summoned Valkyrie",
+
+  "spell.gogspells.summon_ender_dragon_girl": "Summon Ender Dragon Girl",
+  "spell.gogspells.summon_nine_tails": "Summon Nine Tails",
+  "spell.gogspells.summon_werecat": "Summon Werecat",
+  "spell.gogspells.summon_sludge_girl": "Summon Sludge Girl",
+  "spell.gogspells.summon_yuki_onna": "Summon Yuki Onna",
+  "spell.gogspells.summon_mummy": "Summon Mummy",
+  "spell.gogspells.summon_valkyrie": "Summon Valkyrie",
+
+  "spell.gogspells.summon_ender_dragon_girl.guide": "Summon Ender Dragon Girl to fight for you.",
+  "spell.gogspells.summon_nine_tails.guide": "Summon Nine Tails to fight for you. She can shoot firebolts.",
+  "spell.gogspells.summon_werecat.guide": "Summon Werecat(s) to fight for you.",
+  "spell.gogspells.summon_sludge_girl.guide": "Summon Sludge Girl(s) to fight for you. She will poison your enemies.",
+  "spell.gogspells.summon_yuki_onna.guide": "Summon Yuki Onna to fight for you. She can shoot icicles.",
+  "spell.gogspells.summon_mummy.guide": "Summon Mummy to fight for you. She will also summon gravemites.",
+  "spell.gogspells.summon_valkyrie.guide": "Summon Valkyrie to fight for you.",
+
+  "death.attack.gogspells.summon_ender_dragon_girl": "%1$s was torn apart by %2$s.",
+  "death.attack.gogspells.summon_nine_tails": "%1$s was cut and roasted well by %2$s.",
+  "death.attack.gogspells.summon_werecat": "%1$s was ripped to pieces by %2$s like a pillow in a cat’s frenzy.",
+  "death.attack.gogspells.summon_sludge_girl": "%1$s was corroded away by %2$s’s sludge.",
+  "death.attack.gogspells.summon_yuki_onna": "%1$s was made into ice cream by %2$s.",
+  "death.attack.gogspells.summon_mummy": "%1$s was cursed to death by %2$s.",
+  "death.attack.gogspells.summon_valkyrie": "%1$s was sent to Valhalla by %2$s, maybe?",
+
+  "ui.gogspells.extra_health": "%d Extra Health",
+  "ui.gogspells.extra_damage": "%d Extra Attack Damage"
+}
