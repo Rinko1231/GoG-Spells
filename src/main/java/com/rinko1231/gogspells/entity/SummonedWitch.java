@@ -16,6 +16,7 @@ import io.redspace.ironsspellbooks.entity.mobs.goals.*;
 import io.redspace.ironsspellbooks.entity.spells.ExtendedEvokerFang;
 import io.redspace.ironsspellbooks.entity.spells.firefly_swarm.FireflySwarmProjectile;
 import io.redspace.ironsspellbooks.entity.spells.magic_missile.MagicMissileProjectile;
+import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.OwnerHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -29,6 +30,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -279,6 +281,14 @@ public class SummonedWitch extends AbstractGaiaEntity implements RangedAttackMob
 
     public void castFireflySwarmSpell(LivingEntity target, float dist)
     {
+        this.level().playSound(
+                null,
+                this.blockPosition(),
+                SoundRegistry.FIREFLY_SPELL_PREPARE.get(),
+                SoundSource.NEUTRAL,
+                1.0F,
+                1.0F + (this.getRandom().nextFloat() - 0.5F) * 0.2F
+        );
         FireflySwarmProjectile fireflies = new FireflySwarmProjectile(this.level(), this, target, (float)this.getATK()*0.65f);
         fireflies.moveTo(target.position().add((double)0.0F, (double)0.5F, (double)0.0F));
         this.level().addFreshEntity(fireflies);
@@ -299,7 +309,7 @@ public class SummonedWitch extends AbstractGaiaEntity implements RangedAttackMob
                 2.5F,
                 0.1F
         );
-        magicMissileProjectile.setDamage(0.66f * (float) this.getATK());
+        magicMissileProjectile.setDamage(0.80f * (float) this.getATK());
         this.level().addFreshEntity(magicMissileProjectile);
     }
 
