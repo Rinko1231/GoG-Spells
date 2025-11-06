@@ -2,6 +2,8 @@
   "item_group.gogspells": "GoG Spells: Items",
   "item.gogspells.ancient_regal_fabric": "Ancient Regal Fabric",
   "tooltip.item.gogspells.ancient_regal_fabric": "Special drop of Mummy when equipping Blessing of Gaia",
+  "item.gogspells.grief_seed": "Grief Seed",
+  "tooltip.item.gogspells.grief_seed": "Special drop of Witch(GoG) when equipping Blessing of Gaia",
   "item.gogspells.gaia_blessing": "Blessing of Gaia",
   "tooltip.item.gogspells.gaia_blessing": "Add bonus drop rate of certain loots when killing certain mobs",
 
@@ -13,6 +15,7 @@
   "entity.gogspells.summoned_mummy": "Summoned Mummy",
   "entity.gogspells.summoned_gravemite": "Summoned Gravemite",
   "entity.gogspells.summoned_valkyrie": "Summoned Valkyrie",
+  "entity.gogspells.summoned_witch": "Summoned Witch",
 
   "spell.gogspells.summon_ender_dragon_girl": "Summon Ender Dragon Girl",
   "spell.gogspells.summon_nine_tails": "Summon Nine Tails",
@@ -21,6 +24,7 @@
   "spell.gogspells.summon_yuki_onna": "Summon Yuki Onna",
   "spell.gogspells.summon_mummy": "Summon Mummy",
   "spell.gogspells.summon_valkyrie": "Summon Valkyrie",
+  "spell.gogspells.summon_witch": "Walpurgis Night",
 
   "spell.gogspells.summon_ender_dragon_girl.guide": "Summon Ender Dragon Girl to fight for you.",
   "spell.gogspells.summon_nine_tails.guide": "Summon Nine Tails to fight for you. She can shoot firebolts.",
@@ -29,6 +33,7 @@
   "spell.gogspells.summon_yuki_onna.guide": "Summon Yuki Onna to fight for you. She can shoot icicles.",
   "spell.gogspells.summon_mummy.guide": "Summon Mummy to fight for you. She will also summon gravemites.",
   "spell.gogspells.summon_valkyrie.guide": "Summon Valkyrie to fight for you.",
+  "spell.gogspells.summon_witch.guide": "Summon Witch to fight for you. She will use magic spells and potions.",
 
   "death.attack.gogspells.summon_ender_dragon_girl": "%1$s was torn apart by %2$s.",
   "death.attack.gogspells.summon_nine_tails": "%1$s was cut and roasted well by %2$s.",
@@ -37,6 +42,7 @@
   "death.attack.gogspells.summon_yuki_onna": "%1$s was made into ice cream by %2$s.",
   "death.attack.gogspells.summon_mummy": "%1$s was cursed to death by %2$s.",
   "death.attack.gogspells.summon_valkyrie": "%1$s was sent to Valhalla by %2$s, maybe?",
+  "death.attack.gogspells.summon_witch": "%1$s killed in despair by %2$s.",
 
   "ui.gogspells.extra_health": "%d Extra Health",
   "ui.gogspells.extra_damage": "%d Extra Attack Damage"

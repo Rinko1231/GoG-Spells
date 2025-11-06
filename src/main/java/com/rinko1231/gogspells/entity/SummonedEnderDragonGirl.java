@@ -3,6 +3,7 @@ package com.rinko1231.gogspells.entity;
 import com.rinko1231.gogspells.GoGSpells;
 import com.rinko1231.gogspells.init.EntityRegistry;
 import com.rinko1231.gogspells.init.NewSpellRegistry;
+import com.rinko1231.gogspells.utils.MyUtils;
 import gaia.entity.AbstractAssistGaiaEntity;
 import gaia.entity.goal.MobAttackGoal;
 import gaia.registry.GaiaRegistry;
@@ -317,7 +318,7 @@ public class SummonedEnderDragonGirl extends AbstractAssistGaiaEntity implements
     }
 
     protected void customServerAiStep() {
-        if (this.isInWaterOrRain()) {
+        if (this.isInWaterOrRain() && !MyUtils.isEquipGaiaBlessing(this.getSummoner())) {
             this.hurt(this.damageSources().drown(), 1.0F);
         }
 

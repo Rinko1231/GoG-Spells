@@ -65,6 +65,12 @@ public class EntityRegistry {
                             .sized(0.6F, 1.99F)
                             .clientTrackingRange(8)
                             .build((GoGSpells.id( "summoned_valkyrie")).toString()));
+    public static final DeferredHolder<EntityType<?>, EntityType<SummonedWitch>> SUMMONED_WITCH =
+            ENTITIES.register("summoned_witch",
+                    () -> EntityType.Builder.<SummonedWitch>of(SummonedWitch::new, MobCategory.MISC)
+                            .sized(0.6F, 1.99F)
+                            .clientTrackingRange(8)
+                            .build((GoGSpells.id( "summoned_witch")).toString()));
 
 
 

@@ -1,7 +1,9 @@
 {
   "item_group.gogspells": "盖亚魔法：道具",
   "item.gogspells.ancient_regal_fabric": "古代华丽织物",
-  "tooltip.item.gogspells.ancient_regal_fabric": "装备盖亚之赐时的特殊掉落",
+  "tooltip.item.gogspells.ancient_regal_fabric": "装备盖亚之赐时木乃伊的特殊掉落",
+  "item.gogspells.grief_seed": "悲叹之种",
+  "tooltip.item.gogspells.grief_seed": "装备盖亚之赐时魔女的特殊掉落",
   "item.gogspells.gaia_blessing": "盖亚之赐",
   "tooltip.item.gogspells.gaia_blessing": "某些怪物的特定战利品将获得额外掉落率",
 
@@ -12,7 +14,8 @@
   "entity.gogspells.summoned_yuki_onna": "被召唤的雪女",
   "entity.gogspells.summoned_mummy": "被召唤的木乃伊",
   "entity.gogspells.summoned_gravemite": "被召唤的墓螨",
-  "entity.gogspells.summoned_valkyrie": "被召唤的女武神",
+  "entity.gogspells.summoned_valkyrie": "被召唤的瓦尔基里",
+  "entity.gogspells.summoned_witch": "被召唤的魔女",
 
   "spell.gogspells.summon_ender_dragon_girl": "召唤末影龙女",
   "spell.gogspells.summon_nine_tails": "召唤九尾妖狐",
@@ -21,6 +24,7 @@
   "spell.gogspells.summon_yuki_onna": "召唤雪女",
   "spell.gogspells.summon_mummy": "召唤木乃伊",
   "spell.gogspells.summon_valkyrie": "召唤瓦尔基里",
+  "spell.gogspells.summon_witch": "魔女之夜",
 
   "spell.gogspells.summon_ender_dragon_girl.guide": "召唤出末影龙女来为你作战。",
   "spell.gogspells.summon_nine_tails.guide": "召唤出九尾妖狐来为你作战。她会发射火焰箭。",
@@ -29,6 +33,7 @@
   "spell.gogspells.summon_yuki_onna.guide": "召唤出雪女来为你作战。她会发射冰锥。",
   "spell.gogspells.summon_mummy.guide": "召唤出木乃伊来为你作战。她会召唤墓螨。",
   "spell.gogspells.summon_valkyrie.guide": "召唤出瓦尔基里来为你作战。",
+  "spell.gogspells.summon_witch.guide": "召唤出魔女来为你作战。她会使用法术和药水。",
 
   "death.attack.gogspells.summon_ender_dragon_girl": "%1$s被%2$s撕碎了。",
   "death.attack.gogspells.summon_nine_tails": "%1$s被%2$s做成了火焰手撕肉。",
@@ -37,6 +42,7 @@
   "death.attack.gogspells.summon_yuki_onna": "%1$s被%2$s做成了冰淇淋。",
   "death.attack.gogspells.summon_mummy": "%1$s被%2$s诅咒致死。",
   "death.attack.gogspells.summon_valkyrie": "%1$s被%2$s送去了英灵殿，也许吧？",
+  "death.attack.gogspells.summon_witch": "%1$s被%2$s杀死于绝望之中。",
 
   "ui.gogspells.extra_health": "额外生命值：%d",
   "ui.gogspells.extra_damage": "额外攻击力：%d"

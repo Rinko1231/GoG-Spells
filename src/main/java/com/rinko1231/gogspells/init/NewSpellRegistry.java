@@ -5,6 +5,7 @@ package com.rinko1231.gogspells.init;
 import com.rinko1231.gogspells.spell.blood.SummonMummySpell;
 import com.rinko1231.gogspells.spell.ender.SummonEnderDragonGirlSpell;
 import com.rinko1231.gogspells.spell.evocation.SummonWerecatSpell;
+import com.rinko1231.gogspells.spell.evocation.SummonWitchSpell;
 import com.rinko1231.gogspells.spell.fire.SummonNineTailsSpell;
 import com.rinko1231.gogspells.spell.holy.SummonValkyrieSpell;
 import com.rinko1231.gogspells.spell.ice.SummonYukiOnnaSpell;
@@ -43,6 +44,8 @@ public class NewSpellRegistry {
     public static final Supplier<AbstractSpell> SUMMON_VALKYRIE =
             SPELLS.register("summon_valkyrie", SummonValkyrieSpell::new);
 
+    public static final Supplier<AbstractSpell> SUMMON_WITCH =
+            SPELLS.register("summon_witch", SummonWitchSpell::new);
 
     public static void register(IEventBus eventBus) {
         SPELLS.register(eventBus);

@@ -29,6 +29,8 @@ public class CommonSetup {
                 SummonedGraveMite.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_VALKYRIE.get(),
                 SummonedValkyrie.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_WITCH.get(),
+                SummonedWitch.createAttributes().build());
 
     }
 }

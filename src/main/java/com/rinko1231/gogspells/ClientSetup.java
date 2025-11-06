@@ -9,6 +9,7 @@ import com.rinko1231.gogspells.renderer.summonedNineTails.SummonedNineTailsRende
 import com.rinko1231.gogspells.renderer.summonedSludgeGirl.SummonedSludgeGirlRenderer;
 import com.rinko1231.gogspells.renderer.summonedValkyrie.SummonedValkyrieRenderer;
 import com.rinko1231.gogspells.renderer.summonedWerecat.SummonedWerecatRenderer;
+import com.rinko1231.gogspells.renderer.summonedWitch.SummonedWitchRenderer;
 import com.rinko1231.gogspells.renderer.summonedYukiOnna.SummonedYukiOnnaRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -30,6 +31,7 @@ public class ClientSetup {
         event.registerEntityRenderer(EntityRegistry.SUMMONED_MUMMY.get(), SummonedMummyRenderer::new);
         event.registerEntityRenderer(EntityRegistry.SUMMONED_GRAVEMITE.get(), SummonedGraveMiteRenderer::new);
         event.registerEntityRenderer(EntityRegistry.SUMMONED_VALKYRIE.get(), SummonedValkyrieRenderer::new);
+        event.registerEntityRenderer(EntityRegistry.SUMMONED_WITCH.get(), SummonedWitchRenderer::new);
     }
     /*
     @SubscribeEvent

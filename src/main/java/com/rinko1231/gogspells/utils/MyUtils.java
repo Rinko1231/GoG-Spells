@@ -165,6 +165,7 @@ public class MyUtils {
 
 
     public static boolean isEquipGaiaBlessing(LivingEntity livingEntity) {
+        if (livingEntity ==null) return false;
         Optional<ICuriosItemHandler> curiosInventory = CuriosApi.getCuriosInventory(livingEntity).stream().findAny();
         return curiosInventory
                 .map(iCuriosItemHandler -> iCuriosItemHandler.isEquipped(itemRegistry.GAIA_BLESSING.get()))

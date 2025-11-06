@@ -81,6 +81,28 @@ public class GoGSpells {
             }
         }
     }
+    //魔女掉落
+    @SubscribeEvent
+    public void WitchDrops(LivingDropsEvent event) {
+        if (event.getEntity().level().isClientSide) return;
+        LivingEntity entity = event.getEntity();
+        DamageSource source = event.getSource();
+        if (!(entity instanceof Witch)) return;
+        ItemStack dropStack = new ItemStack(itemRegistry.GRIEF_SEED, 1);
+        Entity killer = source.getEntity();
+        if (killer instanceof Player player) {
+            if(!MyUtils.isEquipGaiaBlessing(player)) return;
+            Random random = new Random();
+            float roll = random.nextFloat();
+            if (roll<= GoGSpellsConfig.gaiaBlessingExtraDropRateWitch.get()) {
+                event.getDrops().add(new ItemEntity(
+                        entity.level(),
+                        entity.getX(), entity.getY(), entity.getZ(),
+                        dropStack
+                ));
+            }
+        }
+    }
     //末影龙女掉落
     @SubscribeEvent
     public void EnderDragonGirlDrops(LivingDropsEvent event) {
@@ -213,7 +235,7 @@ public class GoGSpells {
         }
     }
 
-    //雪女掉落
+    //污泥掉落
     @SubscribeEvent
     public void SludgeGirlDrops(LivingDropsEvent event) {
         if (event.getEntity().level().isClientSide) return;

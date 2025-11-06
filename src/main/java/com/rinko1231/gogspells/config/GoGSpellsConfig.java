@@ -57,6 +57,12 @@ public class GoGSpellsConfig {
     public static ModConfigSpec.DoubleValue summonedValkyrieBonusATKSpellPowerRatio;
     public static ModConfigSpec.DoubleValue gaiaBlessingExtraDropRateValkyrie;
 
+    public static ModConfigSpec.BooleanValue summonWitchAllowLooting;
+    public static ModConfigSpec.DoubleValue summonedWitchBaseHealth;
+    public static ModConfigSpec.DoubleValue summonedWitchBonusHealthSpellPowerRatio;
+    public static ModConfigSpec.DoubleValue summonedWitchBaseAttackDamage;
+    public static ModConfigSpec.DoubleValue summonedWitchBonusATKSpellPowerRatio;
+    public static ModConfigSpec.DoubleValue gaiaBlessingExtraDropRateWitch;
     static {
 
 
@@ -175,10 +181,13 @@ public class GoGSpellsConfig {
         summonedMummyBonusATKSpellPowerRatio = BUILDER
                 .comment("Determines how much bonus attack damage summoned creatures gain from your Spell Power.")
                 .defineInRange("summonedMummyBonusATKSpellPowerRatio", 0.2f,0, Integer.MAX_VALUE);
+        gaiaBlessingExtraDropRateMummy = BUILDER
+                .defineInRange("gaiaBlessingExtraDropRateMummy", 0.1, 0, 1.0);
+
 
         BUILDER.pop();
         
-        BUILDER.push("1");
+        BUILDER.push("Summon Valkyrie Spell");
 
         summonValkyrieAllowLooting = BUILDER
                 .comment("Whether the Spell can be obtained from loot chests")
@@ -195,6 +204,26 @@ public class GoGSpellsConfig {
                 .defineInRange("summonedValkyrieBonusATKSpellPowerRatio", 0.3f,0, Integer.MAX_VALUE);
         gaiaBlessingExtraDropRateValkyrie = BUILDER
                 .defineInRange("gaiaBlessingExtraDropRateValkyrie", 0.1, 0, 1.0);
+
+        BUILDER.pop();
+        
+        BUILDER.push("Walpurgis Night / Summon Witch(GoG) Spell");
+
+        summonWitchAllowLooting = BUILDER
+                .comment("Whether the Spell can be obtained from loot chests")
+                .define("summonWitchAllowLooting",false);
+        summonedWitchBaseHealth = BUILDER
+                .defineInRange("summonedWitchBaseHealth", 25.0f ,1, Integer.MAX_VALUE);
+        summonedWitchBonusHealthSpellPowerRatio = BUILDER
+                .comment("Determines how much bonus health summoned creatures gain from your Spell Power.")
+                .defineInRange("summonedWitchBonusHealthSpellPowerRatio", 0.3f,0, Integer.MAX_VALUE);
+        summonedWitchBaseAttackDamage = BUILDER
+                .defineInRange("summonedWitchBaseAttackDamage", 6.0F ,0,  Integer.MAX_VALUE);
+        summonedWitchBonusATKSpellPowerRatio = BUILDER
+                .comment("Determines how much bonus attack damage summoned creatures gain from your Spell Power.")
+                .defineInRange("summonedWitchBonusATKSpellPowerRatio", 0.5f,0, Integer.MAX_VALUE);
+        gaiaBlessingExtraDropRateWitch = BUILDER
+                .defineInRange("gaiaBlessingExtraDropRateWitch", 0.1, 0, 1.0);
 
         BUILDER.pop();
         

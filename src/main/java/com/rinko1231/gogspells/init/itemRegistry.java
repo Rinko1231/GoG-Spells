@@ -45,6 +45,16 @@ public class itemRegistry {
             tooltip.add(Component.translatable(ChatFormatting.BLUE + "" + I18n.get(TooltipKey)));
         }
     });
+    public static final DeferredHolder<Item, Item> GRIEF_SEED = ITEMS.register("grief_seed", ()-> new Item(ItemPropertiesHelper.material().rarity(EPIC))
+    {
+        @Override
+        public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+            super.appendHoverText(stack, context, tooltip, flag);
+            String OriginalId = this.getDescriptionId();
+            String TooltipKey = "tooltip." + OriginalId;
+            tooltip.add(Component.translatable(ChatFormatting.BLUE + "" + I18n.get(TooltipKey)));
+        }
+    });
     public static final DeferredHolder<Item, Item> GAIA_BLESSING = ITEMS.register("gaia_blessing",
             () -> new CurioAdvanceItem(ItemPropertiesHelper.equipment(1).rarity(Rarity.EPIC)) {
                 @Override

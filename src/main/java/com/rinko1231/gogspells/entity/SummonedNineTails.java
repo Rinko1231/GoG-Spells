@@ -264,11 +264,7 @@ public class SummonedNineTails extends AbstractGaiaEntity implements RangedAttac
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (target.isAlive()) {
             fireball(target, this, distanceFactor);
-            this.setThrowing(true);
-            this.animationPlay = true;
-            this.animationTimer = 0;
         }
-
     }
     public void fireball(LivingEntity target, LivingEntity shooter, float distanceFactor) {
         shooter.playSound((SoundEvent) GaiaSounds.GAIA_SHOOT.get(), 1.0F, 1.0F / (shooter.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -285,6 +281,9 @@ public class SummonedNineTails extends AbstractGaiaEntity implements RangedAttac
             smallFireball.setDamage(0.66f * SpellRegistry.FIREBOLT_SPELL.get().getDamageSource(magicSummon.getSummoner()).spell().getSpellPower(1, magicSummon.getSummoner()));
         }
         shooter.level().addFreshEntity(smallFireball);
+        this.setThrowing(true);
+        this.animationPlay = true;
+        this.animationTimer = 0;
     }
 
     public boolean doHurtTarget(Entity entityIn) {

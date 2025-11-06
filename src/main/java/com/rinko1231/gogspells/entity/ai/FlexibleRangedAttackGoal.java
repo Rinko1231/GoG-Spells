@@ -3,8 +3,10 @@ package com.rinko1231.gogspells.entity.ai;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -22,7 +24,7 @@ public class FlexibleRangedAttackGoal extends Goal {
         private final float attackRadius;
         private final float attackRadiusSqr;
 
-        // 新增的走位参数
+        //走位参数
         private boolean strafingClockwise;
         private boolean strafingBackwards;
         private int strafingTime = -1;
@@ -102,8 +104,8 @@ public class FlexibleRangedAttackGoal extends Goal {
                 this.strafingTime = -1;
             }
 
-            // 每30tick随机切换一次方向
-            if (this.strafingTime >= 30) {
+
+            if (this.strafingTime >= 40) {
                 if (this.mob.getRandom().nextFloat() < 0.3F) {
                     this.strafingClockwise = !this.strafingClockwise;
                 }
@@ -115,16 +117,12 @@ public class FlexibleRangedAttackGoal extends Goal {
 
             // 控制走位的具体移动
             if (this.strafingTime > -1) {
-                if (d0 > (double) (this.attackRadiusSqr * 0.75F)) {
-                    this.strafingBackwards = false;
-                } else if (d0 < (double) (this.attackRadiusSqr * 0.25F)) {
-                    this.strafingBackwards = true;
+                boolean isFlying = mob.getMoveControl() instanceof FlyingMoveControl;
+                if (isFlying) {
+                    handleFlyingStrafe(target, d0);
+                } else {
+                    handleGroundStrafe(target, d0);
                 }
-
-                float forward = this.strafingBackwards ? -0.5F : 0.5F;
-                float sideways = this.strafingClockwise ? 0.5F : -0.5F;
-                this.mob.getMoveControl().strafe(forward, sideways);
-                this.mob.lookAt(this.target, 30.0F, 30.0F);
             } else {
                 this.mob.getLookControl().setLookAt(this.target, 30.0F, 30.0F);
             }
@@ -142,4 +140,37 @@ public class FlexibleRangedAttackGoal extends Goal {
                 this.attackTime = Mth.floor(Mth.lerp(Math.sqrt(d0) / (double) this.attackRadius, (double) this.attackIntervalMin, (double) this.attackIntervalMax));
             }
         }
+
+
+    private void handleFlyingStrafe(LivingEntity target, double distSqr) {
+        Vec3 targetPos = target.position();
+        double radius = Math.sqrt(this.attackRadiusSqr) * 0.8; // 飞行环绕半径
+        double angleSpeed = 0.1; // 环绕角速度（越大越快）
+        double heightOffset = 1.75 + this.mob.getRandom().nextGaussian() * 0.25; // 随机高度波动
+
+        // 根据当前 tick 计算环绕偏移
+        double angle = (this.mob.tickCount * angleSpeed) * (this.strafingClockwise ? 1 : -1);
+        double offsetX = Math.cos(angle) * radius;
+        double offsetZ = Math.sin(angle) * radius;
+
+        Vec3 dest = new Vec3(targetPos.x + offsetX, targetPos.y + heightOffset, targetPos.z + offsetZ);
+        this.mob.getNavigation().moveTo(dest.x, dest.y, dest.z, this.speedModifier);
+
+        // 朝向目标
+        this.mob.getLookControl().setLookAt(target, 30.0F, 30.0F);
+    }
+    private void handleGroundStrafe(LivingEntity target, double distSqr) {
+        if (distSqr > (double)(this.attackRadiusSqr * 0.75F)) {
+            this.strafingBackwards = false;
+        } else if (distSqr < (double)(this.attackRadiusSqr * 0.25F)) {
+            this.strafingBackwards = true;
+        }
+
+        float forward = this.strafingBackwards ? -0.5F : 0.5F;
+        float sideways = this.strafingClockwise ? 0.5F : -0.5F;
+        this.mob.getMoveControl().strafe(forward, sideways);
+        this.mob.lookAt(target, 30.0F, 30.0F);
+    }
+
+
     }

@@ -54,10 +54,12 @@ public class SummonedMummy extends AbstractGaiaEntity implements IMagicSummon {
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, (double)1.25F, true));
-        this.goalSelector.addGoal(2, new RandomStrollGoal(this, (double)1.0F));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(6, new GenericFollowOwnerGoal(this, this::getSummoner, 1.5D, 15.0f, 5.0f, false, 25.0f));
+
+        this.goalSelector.addGoal(7, new MeleeAttackGoal(this, (double)1.25F, true));
+        this.goalSelector.addGoal(8, new RandomStrollGoal(this, (double)1.0F));
+        this.goalSelector.addGoal(9, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new GenericOwnerHurtByTargetGoal(this, this::getSummoner));
         this.targetSelector.addGoal(2, new GenericOwnerHurtTargetGoal(this, this::getSummoner));
