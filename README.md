@@ -42,6 +42,10 @@ Unlike their non-summon versions, these summoned versions slightly **adjusted AI
 
 *   Her attacks cause the **Slowness** effect.
 
+### **Witch**
+
+*   She can cast Magic Missile/Firefly Swarm/Evoker Fang, and throw potions.
+
 ***
 
 ## ✨ Notes
