@@ -338,9 +338,9 @@ public class SummonedEnderDragonGirl extends AbstractAssistGaiaEntity implements
 
     protected boolean teleportRandomly() {
         if (!this.level().isClientSide() && this.isAlive()) {
-            double d0 = this.getX() + (this.random.nextDouble() - (double) 0.5F) * (double) 64.0F;
+            double d0 = this.getX() + (this.random.nextDouble() - (double) 0.5F) * (double) 25.0F;
             double d1 = this.getY() + (double) (this.random.nextInt(64) - 32);
-            double d2 = this.getZ() + (this.random.nextDouble() - (double) 0.5F) * (double) 64.0F;
+            double d2 = this.getZ() + (this.random.nextDouble() - (double) 0.5F) * (double) 25.0F;
             return this.teleport(d0, d1, d2);
         } else {
             return false;
