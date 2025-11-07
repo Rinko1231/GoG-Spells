@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FIF",
+    " K ",
+    " P "
+  ],
+  "key": {
+    "I": {
+      "item": "gogspells:ancient_regal_fabric"
+    },
+    "F": {
+      "item": "irons_spellbooks:blood_rune"
+    },
+    "K": {
+      "item": "irons_spellbooks:common_ink"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "irons_spellbooks:scroll",
+    "count": 1,
+    "nbt": {
+      "ISB_Spells": {
+        "maxSpells": 1,
+        "mustEquip": false,
+        "spellWheel": false,
+        "data": [
+          {
+            "id": "gogspells:summon_mummy",
+            "level": 1,
+            "locked": true,
+            "index": 0
+          }
+        ]
+      }
+    }
+  }
+}

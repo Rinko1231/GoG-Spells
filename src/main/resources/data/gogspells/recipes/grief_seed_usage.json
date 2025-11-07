@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "F F",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "gogspells:grief_seed"
+    }
+  },
+  "result": {
+    "item": "irons_spellbooks:arcane_essence",
+    "count": 4
+  }
+}

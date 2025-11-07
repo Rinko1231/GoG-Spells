@@ -1,0 +1,14 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="GPLv3"
+
+[[mods]]
+modId="gogspells"
+version="1.20.1-1.0.9"
+#logoFile="logo.png" #optional
+displayName="Grimoire of Gaia Spells"
+authors="Rinko1231"
+description='''
+Add some spells from GoG.
+Thanks to some Free assets from ssugmi, Kyrises!
+'''
