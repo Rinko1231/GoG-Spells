@@ -131,7 +131,7 @@ public class SummonedWitch extends AbstractGaiaEntity implements RangedAttackMob
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(6, new GenericFollowOwnerGoal(this, this::getSummoner, 1.5D, 15.0f, 5.0f, false, 25.0f));
+        this.goalSelector.addGoal(6, new GenericFollowOwnerGoal(this, this::getSummoner, 1.5D, 15.0f, 5.0f, this.isRidingBroom(), 25.0f));
 
         this.goalSelector.addGoal(7, new FlexibleRangedAttackGoal(this, 1.20, 80, 10.0F));
         this.goalSelector.addGoal(8, new RandomStrollGoal(this, (double) 1.0F));
@@ -233,7 +233,10 @@ public class SummonedWitch extends AbstractGaiaEntity implements RangedAttackMob
         float input = this.getBaseDamage(source, damage);
         return !this.shouldIgnoreDamage(source) && super.hurt(source, input);
     }
-
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
     public boolean doHurtTarget(Entity entityIn) {
         return Utils.doMeleeAttack(this, entityIn,
                 ((AbstractSpell) NewSpellRegistry.SUMMON_WITCH.get())

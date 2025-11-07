@@ -63,6 +63,13 @@ public class GoGSpellsConfig {
     public static ModConfigSpec.DoubleValue summonedWitchBaseAttackDamage;
     public static ModConfigSpec.DoubleValue summonedWitchBonusATKSpellPowerRatio;
     public static ModConfigSpec.DoubleValue gaiaBlessingExtraDropRateWitch;
+
+    public static ModConfigSpec.BooleanValue summonArachneAllowLooting;
+    public static ModConfigSpec.DoubleValue summonedArachneBaseHealth;
+    public static ModConfigSpec.DoubleValue summonedArachneBonusHealthSpellPowerRatio;
+    public static ModConfigSpec.DoubleValue summonedArachneBaseAttackDamage;
+    public static ModConfigSpec.DoubleValue summonedArachneBonusATKSpellPowerRatio;
+
     static {
 
 
@@ -225,6 +232,24 @@ public class GoGSpellsConfig {
         gaiaBlessingExtraDropRateWitch = BUILDER
                 .defineInRange("gaiaBlessingExtraDropRateWitch", 0.1, 0, 1.0);
 
+        BUILDER.pop();
+        
+        BUILDER.push("Summon Arachne Spell");
+
+        summonArachneAllowLooting = BUILDER
+                .comment("Whether the Spell can be obtained from loot chests")
+                .define("summonArachneAllowLooting",false);
+        summonedArachneBaseHealth = BUILDER
+                .defineInRange("summonedArachneBaseHealth", 18.0f ,1, Integer.MAX_VALUE);
+        summonedArachneBonusHealthSpellPowerRatio = BUILDER
+                .comment("Determines how much bonus health summoned creatures gain from your Spell Power.")
+                .defineInRange("summonedArachneBonusHealthSpellPowerRatio", 0.3f,0, Integer.MAX_VALUE);
+        summonedArachneBaseAttackDamage = BUILDER
+                .defineInRange("summonedArachneBaseAttackDamage", 5.0F ,0,  Integer.MAX_VALUE);
+        summonedArachneBonusATKSpellPowerRatio = BUILDER
+                .comment("Determines how much bonus attack damage summoned creatures gain from your Spell Power.")
+                .defineInRange("summonedArachneBonusATKSpellPowerRatio", 0.2f,0, Integer.MAX_VALUE);
+        
         BUILDER.pop();
         
         BUILDER.push("MISC");

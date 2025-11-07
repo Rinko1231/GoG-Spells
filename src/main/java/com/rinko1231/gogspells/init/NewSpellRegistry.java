@@ -9,6 +9,7 @@ import com.rinko1231.gogspells.spell.evocation.SummonWitchSpell;
 import com.rinko1231.gogspells.spell.fire.SummonNineTailsSpell;
 import com.rinko1231.gogspells.spell.holy.SummonValkyrieSpell;
 import com.rinko1231.gogspells.spell.ice.SummonYukiOnnaSpell;
+import com.rinko1231.gogspells.spell.nature.SummonArachneSpell;
 import com.rinko1231.gogspells.spell.nature.SummonSludgeGirlSpell;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -46,6 +47,9 @@ public class NewSpellRegistry {
 
     public static final Supplier<AbstractSpell> SUMMON_WITCH =
             SPELLS.register("summon_witch", SummonWitchSpell::new);
+
+    public static final Supplier<AbstractSpell> SUMMON_ARACHNE =
+            SPELLS.register("summon_arachne", SummonArachneSpell::new);
 
     public static void register(IEventBus eventBus) {
         SPELLS.register(eventBus);

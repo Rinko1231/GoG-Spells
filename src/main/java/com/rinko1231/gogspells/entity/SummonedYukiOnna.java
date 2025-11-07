@@ -64,6 +64,10 @@ public class SummonedYukiOnna extends AbstractAssistGaiaEntity implements Ranged
     private static final EntityDataAccessor<Boolean> SHOOTING;
     private static final ResourceLocation KNOCKBACK_ID;
     private static final AttributeModifier KNOCKBACK_MODIFIER;
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
 
     static {
         SHOOTING = SynchedEntityData.defineId(SummonedYukiOnna.class, EntityDataSerializers.BOOLEAN);

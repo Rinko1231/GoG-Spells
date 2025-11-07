@@ -106,7 +106,10 @@ public class SummonedWerecat extends AbstractGaiaEntity implements IMagicSummon 
         super.defineSynchedData(builder);
         builder.define(FLEEING, false);
     }
-
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
     public boolean isFleeing() {
         return (Boolean) this.entityData.get(FLEEING);
     }
@@ -186,7 +189,7 @@ public class SummonedWerecat extends AbstractGaiaEntity implements IMagicSummon 
                 int effectTime = 12;
 
                 if (effectTime > 0) {
-                    livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, effectTime * 20, 1));
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 1));
                     livingEntity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, effectTime * 20, 1));
                 }
             }

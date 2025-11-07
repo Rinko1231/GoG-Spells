@@ -45,6 +45,10 @@ import static net.minecraft.world.effect.MobEffects.REGENERATION;
 public class SummonedSludgeGirl extends AbstractGaiaEntity implements IMagicSummon {
     protected LivingEntity cachedSummoner;
     protected UUID summonerUUID;
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
     public SummonedSludgeGirl(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }

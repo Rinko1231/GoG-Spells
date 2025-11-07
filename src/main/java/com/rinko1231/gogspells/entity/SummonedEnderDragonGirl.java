@@ -115,11 +115,13 @@ public class SummonedEnderDragonGirl extends AbstractAssistGaiaEntity implements
 
     public SummonedEnderDragonGirl(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
+        this.xpReward=0;
         this.setPathfindingMalus(PathType.WATER, -1.0F);
     }
 
     public SummonedEnderDragonGirl(Level level, LivingEntity owner) {
         this((EntityType<? extends Monster>) EntityRegistry.SUMMONED_ENDER_DRAGON_GIRL.get(), level);
+        this.xpReward=0;
         this.setPathfindingMalus(PathType.WATER, -1.0F);
         this.setSummoner(owner);
     }
@@ -264,7 +266,10 @@ public class SummonedEnderDragonGirl extends AbstractAssistGaiaEntity implements
                 ((AbstractSpell) NewSpellRegistry.SUMMON_ENDER_DRAGON_GIRL.get())
                         .getDamageSource(this, this.getSummoner()));
     }
-
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
 
     public boolean hurt(@NotNull DamageSource source, float damage) {
         float input = this.getBaseDamage(source, damage);

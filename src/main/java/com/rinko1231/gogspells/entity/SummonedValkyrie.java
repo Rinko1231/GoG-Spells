@@ -63,7 +63,10 @@ public class SummonedValkyrie extends AbstractAssistGaiaEntity implements Powera
     private int animationTimer;
     protected LivingEntity cachedSummoner;
     protected UUID summonerUUID;
-
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
     public SummonedValkyrie(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         this.xpReward = 0;

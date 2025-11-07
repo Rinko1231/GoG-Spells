@@ -1,0 +1,147 @@
+package com.rinko1231.gogspells.spell.nature;
+
+import com.rinko1231.gogspells.GoGSpells;
+import com.rinko1231.gogspells.config.GoGSpellsConfig;
+import com.rinko1231.gogspells.entity.SummonedArachne;
+import com.rinko1231.gogspells.utils.MyUtils;
+import io.redspace.ironsspellbooks.api.config.DefaultConfig;
+import io.redspace.ironsspellbooks.api.events.SpellSummonEvent;
+import io.redspace.ironsspellbooks.api.magic.MagicData;
+import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
+import io.redspace.ironsspellbooks.api.spells.*;
+import io.redspace.ironsspellbooks.api.util.Utils;
+import io.redspace.ironsspellbooks.capabilities.magic.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.NeoForge;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.Optional;
+
+@AutoSpellConfig
+public class SummonArachneSpell extends AbstractSpell {
+    private final ResourceLocation spellId = GoGSpells.id("summon_arachne");
+    private final DefaultConfig defaultConfig;
+
+    public SummonArachneSpell() {
+        this.defaultConfig = (new DefaultConfig())
+                .setMinRarity(SpellRarity.UNCOMMON)
+                .setSchoolResource(SchoolRegistry.NATURE_RESOURCE)
+                .setMaxLevel(5)
+                .setAllowCrafting(false)
+                .setCooldownSeconds((double) 120.0F).build();
+        this.manaCostPerLevel = 10;
+        this.baseSpellPower = 10;
+        this.spellPowerPerLevel = 5;
+        this.castTime = 20;
+        this.baseManaCost = 50;
+    }
+
+    public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
+        return List.of(
+                Component.translatable("ui.irons_spellbooks.summon_count", new Object[]{Utils.stringTruncation(this.getSummonCount(spellLevel) , 1)}),
+                Component.translatable("ui.irons_spellbooks.hp",
+                        new Object[]{Utils.stringTruncation( (double) this.getSummonHealth(spellLevel, caster) , 1)}),
+                Component.translatable("ui.irons_spellbooks.damage",
+                        new Object[]{Utils.stringTruncation( (double) this.getSummonDamage(spellLevel, caster) , 1)})
+        );
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return GoGSpellsConfig.summonArachneAllowLooting.get();
+    }
+
+    public CastType getCastType() {
+        return CastType.LONG;
+    }
+
+    public DefaultConfig getDefaultConfig() {
+        return this.defaultConfig;
+    }
+
+    public ResourceLocation getSpellResource() {
+        return this.spellId;
+    }
+
+    public Optional<SoundEvent> getCastStartSound() {
+        return Optional.of(SoundEvents.EVOKER_PREPARE_SUMMON);
+    }
+
+    public Optional<SoundEvent> getCastFinishSound() {
+        return Optional.of(SoundEvents.EVOKER_CAST_SPELL);
+    }
+
+    public float extraHealthBasedOnSpellPower(int spellLevel, LivingEntity caster) {
+        return GoGSpellsConfig.summonedArachneBonusHealthSpellPowerRatio.get().floatValue() * this.getSpellPower(spellLevel, caster);
+    }
+    public float extraATKBasedOnSpellPower(int spellLevel, LivingEntity caster) {
+        return GoGSpellsConfig.summonedArachneBonusATKSpellPowerRatio.get().floatValue() * this.getSpellPower(spellLevel, caster);
+    }
+    public float getSummonHealth(int spellLevel, LivingEntity caster)
+    {
+        return GoGSpellsConfig.summonedArachneBaseHealth.get().floatValue() + this.extraHealthBasedOnSpellPower(spellLevel, caster);
+    }
+    public float getSummonDamage(int spellLevel, LivingEntity caster)
+    {
+        return GoGSpellsConfig.summonedArachneBaseAttackDamage.get().floatValue() + this.extraATKBasedOnSpellPower(spellLevel, caster);
+    }
+    public int getSummonCount(int spellLevel)
+    {
+        int summonCount = MyUtils.maxCap(4,(int)(spellLevel/2.5));
+        return MyUtils.minCap(1,summonCount);
+    }
+
+    public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        PlayerRecasts recasts = playerMagicData.getPlayerRecasts();
+        if (!recasts.hasRecastForSpell(this)) {
+            SummonedEntitiesCastData summonedEntitiesCastData = new SummonedEntitiesCastData();
+            int summonTime = 12000;
+            for (int i = 0; i < this.getSummonCount(spellLevel); ++i) {
+                SummonedArachne summonedArachne = new SummonedArachne(world, entity);
+
+                summonedArachne.getAttributes().getInstance(Attributes.ATTACK_DAMAGE).setBaseValue((double)this.getSummonDamage(spellLevel, entity));
+                summonedArachne.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue((double)this.getSummonHealth(spellLevel, entity));
+                summonedArachne.setHealth(summonedArachne.getMaxHealth());
+
+                summonedArachne.moveTo(entity.getEyePosition().add(new Vec3(Utils.getRandomScaled((double) 2.0F), (double) 1.0F, Utils.getRandomScaled((double) 2.0F))));
+                summonedArachne.finalizeSpawn((ServerLevel) world, world.getCurrentDifficultyAt(summonedArachne.getOnPos()), MobSpawnType.MOB_SUMMONED, (SpawnGroupData) null);
+                SummonedArachne creature = (SummonedArachne) ((SpellSummonEvent) NeoForge.EVENT_BUS.post(new SpellSummonEvent(entity, summonedArachne, this.spellId, spellLevel))).getCreature();
+
+                world.addFreshEntity(creature);
+                SummonManager.initSummon(entity, creature, summonTime, summonedEntitiesCastData);
+            }
+
+            RecastInstance recastInstance = new RecastInstance(this.getSpellId(), spellLevel, this.getRecastCount(spellLevel, entity), summonTime, castSource, summonedEntitiesCastData);
+            recasts.addRecast(recastInstance, playerMagicData);
+        }
+
+        super.onCast(world, spellLevel, entity, castSource, playerMagicData);
+    }
+
+    public ICastDataSerializable getEmptyCastData() {
+        return new SummonedEntitiesCastData();
+    }
+
+    public void onRecastFinished(ServerPlayer serverPlayer, RecastInstance recastInstance, RecastResult recastResult, ICastDataSerializable castDataSerializable) {
+        if (SummonManager.recastFinishedHelper(serverPlayer, recastInstance, recastResult, castDataSerializable)) {
+            super.onRecastFinished(serverPlayer, recastInstance, recastResult, castDataSerializable);
+        }
+    }
+
+    public int getRecastCount(int spellLevel, @Nullable LivingEntity entity) {
+        return 2;
+    }
+}

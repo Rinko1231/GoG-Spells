@@ -31,6 +31,10 @@ public class CommonSetup {
                 SummonedValkyrie.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_WITCH.get(),
                 SummonedWitch.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_ARACHNE.get(),
+                SummonedArachne.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_CAVE_SPIDER.get(),
+                SummonedCaveSpider.createAttributes().build());
 
     }
 }

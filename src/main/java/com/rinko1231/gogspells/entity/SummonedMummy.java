@@ -52,6 +52,10 @@ public class SummonedMummy extends AbstractGaiaEntity implements IMagicSummon {
         this.xpReward = 0;
         this.setSummoner(owner);
     }
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(6, new GenericFollowOwnerGoal(this, this::getSummoner, 1.5D, 15.0f, 5.0f, false, 25.0f));

@@ -41,6 +41,10 @@ public class SummonedGraveMite extends PathfinderMob implements IMagicSummon, Ow
         super(entityType, level);
         this.xpReward = 0;
     }
+    @Override
+    public boolean canAttackType(EntityType<?> type) {
+        return true;
+    }
     public LivingEntity getOwner() {
         return cachedSummoner;
     }
