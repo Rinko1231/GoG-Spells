@@ -44,7 +44,11 @@ Unlike their non-summon versions, these summoned versions slightly **adjusted AI
 
 ### **Witch**
 
-*   She can cast Magic Missile/Firefly Swarm/Evoker Fang, and throw potions.
+*   She can cast **Magic Missile/Firefly Swarm/Evoker Fang**, and throw potions.
+
+### **Arachne**
+
+*   She can cast **Magic Web Projectile/Poison Arrow/Acid Orb**, and summon cave spiders when her health drops.
 
 ***
 
