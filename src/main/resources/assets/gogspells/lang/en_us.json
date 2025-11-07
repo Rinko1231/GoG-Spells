@@ -16,6 +16,13 @@
   "entity.gogspells.summoned_gravemite": "Summoned Gravemite",
   "entity.gogspells.summoned_valkyrie": "Summoned Valkyrie",
   "entity.gogspells.summoned_witch": "Summoned Witch",
+  "entity.gogspells.summoned_arachne": "Summoned Arachne",
+  "entity.gogspells.summoned_cave_spider": "Summoned Cave Spider",
+
+  "entity.gogspells.magic_web_projectile": "Web Projectile",
+  "entity.gogspells.arachne_poison_arrow": "Poison Arrow",
+  "entity.gogspells.arachne_poison_cloud": "Poison Cloud",
+  "entity.gogspells.arachne_acid_orb": "Acid Orb",
 
   "spell.gogspells.summon_ender_dragon_girl": "Summon Ender Dragon Girl",
   "spell.gogspells.summon_nine_tails": "Summon Nine Tails",
@@ -25,6 +32,7 @@
   "spell.gogspells.summon_mummy": "Summon Mummy",
   "spell.gogspells.summon_valkyrie": "Summon Valkyrie",
   "spell.gogspells.summon_witch": "Walpurgis Night",
+  "spell.gogspells.summon_arachne": "So I'm a Spider, So What?",
 
   "spell.gogspells.summon_ender_dragon_girl.guide": "Summon Ender Dragon Girl to fight for you.",
   "spell.gogspells.summon_nine_tails.guide": "Summon Nine Tails to fight for you. She can shoot firebolts.",
@@ -34,6 +42,7 @@
   "spell.gogspells.summon_mummy.guide": "Summon Mummy to fight for you. She will also summon gravemites.",
   "spell.gogspells.summon_valkyrie.guide": "Summon Valkyrie to fight for you.",
   "spell.gogspells.summon_witch.guide": "Summon Witch to fight for you. She will use magic spells and potions.",
+  "spell.gogspells.summon_arachne.guide": "Summon Arachne(s) to fight for you.",
 
   "death.attack.gogspells.summon_ender_dragon_girl": "%1$s was torn apart by %2$s.",
   "death.attack.gogspells.summon_nine_tails": "%1$s was cut and roasted well by %2$s.",
@@ -43,6 +52,7 @@
   "death.attack.gogspells.summon_mummy": "%1$s was cursed to death by %2$s.",
   "death.attack.gogspells.summon_valkyrie": "%1$s was sent to Valhalla by %2$s, maybe?",
   "death.attack.gogspells.summon_witch": "%1$s killed in despair by %2$s.",
+  "death.attack.gogspells.summon_arachne": "%1$s was dissolved into a cocktail by %2$s’s venom.",
 
   "ui.gogspells.extra_health": "%d Extra Health",
   "ui.gogspells.extra_damage": "%d Extra Attack Damage"

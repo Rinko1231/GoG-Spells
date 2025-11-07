@@ -16,6 +16,13 @@
   "entity.gogspells.summoned_gravemite": "被召唤的墓螨",
   "entity.gogspells.summoned_valkyrie": "被召唤的瓦尔基里",
   "entity.gogspells.summoned_witch": "被召唤的魔女",
+  "entity.gogspells.summoned_arachne": "被召唤的阿拉克涅",
+  "entity.gogspells.summoned_cave_spider": "被召唤的洞穴蜘蛛",
+
+  "entity.gogspells.magic_web_projectile": "蛛网弹",
+  "entity.gogspells.arachne_poison_arrow": "毒箭",
+  "entity.gogspells.arachne_poison_cloud": "毒云",
+  "entity.gogspells.arachne_acid_orb": "蚀酸球",
 
   "spell.gogspells.summon_ender_dragon_girl": "召唤末影龙女",
   "spell.gogspells.summon_nine_tails": "召唤九尾妖狐",
@@ -25,6 +32,7 @@
   "spell.gogspells.summon_mummy": "召唤木乃伊",
   "spell.gogspells.summon_valkyrie": "召唤瓦尔基里",
   "spell.gogspells.summon_witch": "魔女之夜",
+  "spell.gogspells.summon_arachne": "是蜘蛛又怎样？",
 
   "spell.gogspells.summon_ender_dragon_girl.guide": "召唤出末影龙女来为你作战。",
   "spell.gogspells.summon_nine_tails.guide": "召唤出九尾妖狐来为你作战。她会发射火焰箭。",
@@ -34,6 +42,7 @@
   "spell.gogspells.summon_mummy.guide": "召唤出木乃伊来为你作战。她会召唤墓螨。",
   "spell.gogspells.summon_valkyrie.guide": "召唤出瓦尔基里来为你作战。",
   "spell.gogspells.summon_witch.guide": "召唤出魔女来为你作战。她会使用法术和药水。",
+  "spell.gogspells.summon_arachne.guide": "召唤出阿拉克涅来为你作战。",
 
   "death.attack.gogspells.summon_ender_dragon_girl": "%1$s被%2$s撕碎了。",
   "death.attack.gogspells.summon_nine_tails": "%1$s被%2$s做成了火焰手撕肉。",
@@ -43,6 +52,7 @@
   "death.attack.gogspells.summon_mummy": "%1$s被%2$s诅咒致死。",
   "death.attack.gogspells.summon_valkyrie": "%1$s被%2$s送去了英灵殿，也许吧？",
   "death.attack.gogspells.summon_witch": "%1$s被%2$s杀死于绝望之中。",
+  "death.attack.gogspells.summon_arachne": "%1$s被%2$s做成了怪味鸡尾酒。",
 
   "ui.gogspells.extra_health": "额外生命值：%d",
   "ui.gogspells.extra_damage": "额外攻击力：%d"
