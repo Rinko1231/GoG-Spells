@@ -42,6 +42,14 @@ Unlike their non-summon versions, these summoned versions slightly **adjusted AI
 
 *   Her attacks cause the **Slowness** effect.
 
+### **Witch**
+
+*   She can cast **Magic Missile/Firefly Swarm/Evoker Fang**, and throw potions.
+
+### **Arachne**
+
+*   She can cast **Magic Web Projectile/Poison Arrow/Acid Orb**, and summon cave spiders when her health drops.
+
 ***
 
 ## ✨ Notes
@@ -49,3 +57,4 @@ Unlike their non-summon versions, these summoned versions slightly **adjusted AI
 *   Highly Configurable in **config/GoGSpellsConfig.toml**.
 *   Their Summon Scrolls are craftable, just check them in JEI.
 *   You can also craft a necklace **The Blessing of Gaia** which adds bonus drop rate of certain loots when killing certain mobs, with which you will be able to craft those scrolls earlier.
+  
