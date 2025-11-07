@@ -1,0 +1,41 @@
+package com.rinko1231.gogspells;
+
+import com.rinko1231.gogspells.init.EntityRegistry;
+import com.rinko1231.gogspells.entity.*;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+
+import static com.rinko1231.gogspells.GoGSpells.MODID;
+
+@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class CommonSetup {
+    @SubscribeEvent
+    public static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+
+        event.put(EntityRegistry.SUMMONED_ENDER_DRAGON_GIRL.get(),
+                SummonedEnderDragonGirl.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_NINE_TAILS.get(),
+                SummonedNineTails.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_WERECAT.get(),
+                SummonedWerecat.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_SLUDGE_GIRL.get(),
+                SummonedSludgeGirl.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_YUKI_ONNA.get(),
+                SummonedYukiOnna.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_MUMMY.get(),
+                SummonedMummy.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_GRAVEMITE.get(),
+                SummonedGraveMite.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_VALKYRIE.get(),
+                SummonedValkyrie.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_WITCH.get(),
+                SummonedWitch.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_ARACHNE.get(),
+                SummonedArachne.createAttributes().build());
+        event.put(EntityRegistry.SUMMONED_CAVE_SPIDER.get(),
+                SummonedCaveSpider.createAttributes().build());
+
+    }
+}
