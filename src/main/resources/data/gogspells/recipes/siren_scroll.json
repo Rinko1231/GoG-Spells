@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EIE",
+    " K ",
+    " P "
+  ],
+  "key": {
+    "I": {
+      "item": "gogspells:siren_pearl"
+    },
+    "E": {
+      "item": "traveloptics:aqua_rune"
+    },
+    "K": {
+      "item": "irons_spellbooks:common_ink"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "irons_spellbooks:scroll",
+    "count": 1,
+    "nbt": {
+      "ISB_Spells": {
+        "maxSpells": 1,
+        "mustEquip": false,
+        "spellWheel": false,
+        "data": [
+          {
+            "id": "gogspells:summon_siren",
+            "level": 1,
+            "locked": true,
+            "index": 0
+          }
+        ]
+      }
+    }
+  }
+}

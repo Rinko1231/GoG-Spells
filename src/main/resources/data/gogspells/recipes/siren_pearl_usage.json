@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "F F",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "gogspells:siren_pearl"
+    }
+  },
+  "result": {
+    "item": "alexscaves:pearl",
+    "count": 2
+  }
+}

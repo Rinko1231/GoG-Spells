@@ -4,6 +4,8 @@
   "tooltip.item.gogspells.ancient_regal_fabric": "Special drop of Mummy when equipping Blessing of Gaia",
   "item.gogspells.grief_seed": "Grief Seed",
   "tooltip.item.gogspells.grief_seed": "Special drop of Witch(GoG) when equipping Blessing of Gaia",
+  "item.gogspells.siren_pearl": "Siren Pearl",
+  "tooltip.item.gogspells.siren_pearl": "Special drop of Siren(GoG) when equipping Blessing of Gaia",
   "item.gogspells.gaia_blessing": "Blessing of Gaia",
   "tooltip.item.gogspells.gaia_blessing": "Add bonus drop rate of certain loots when killing certain mobs",
 
@@ -18,6 +20,7 @@
   "entity.gogspells.summoned_witch": "Summoned Witch",
   "entity.gogspells.summoned_arachne": "Summoned Arachne",
   "entity.gogspells.summoned_cave_spider": "Summoned Cave Spider",
+  "entity.gogspells.summoned_siren": "Summoned Siren",
 
   "entity.gogspells.magic_web_projectile": "Web Projectile",
   "entity.gogspells.arachne_poison_arrow": "Poison Arrow",
@@ -33,6 +36,7 @@
   "effect.gogspells.summon_valkyrie_timer": "Summoned Valkyrie",
   "effect.gogspells.summon_witch_timer": "Summoned Witch",
   "effect.gogspells.summon_arachne_timer": "Summoned Arachne",
+  "effect.gogspells.summon_siren_timer": "Summoned Siren",
 
   "spell.gogspells.summon_ender_dragon_girl": "Summon Ender Dragon Girl",
   "spell.gogspells.summon_nine_tails": "Summon Nine Tails",
@@ -43,6 +47,7 @@
   "spell.gogspells.summon_valkyrie": "Summon Valkyrie",
   "spell.gogspells.summon_witch": "Walpurgis Night",
   "spell.gogspells.summon_arachne": "So I'm a Spider, So What?",
+  "spell.gogspells.summon_siren": "Summon Siren",
 
   "spell.gogspells.summon_ender_dragon_girl.guide": "Summon Ender Dragon Girl to fight for you.",
   "spell.gogspells.summon_nine_tails.guide": "Summon Nine Tails to fight for you. She can shoot firebolts.",
@@ -53,6 +58,7 @@
   "spell.gogspells.summon_valkyrie.guide": "Summon Valkyrie to fight for you.",
   "spell.gogspells.summon_witch.guide": "Summon Witch to fight for you. She will use magic spells and potions.",
   "spell.gogspells.summon_arachne.guide": "Summon Arachne(s) to fight for you.",
+  "spell.gogspells.summon_siren.guide": "Summon Siren Saber, Siren Archer, Siren Caster to fight for you.",
 
   "death.attack.gogspells.summon_ender_dragon_girl": "%1$s was torn apart by %2$s.",
   "death.attack.gogspells.summon_nine_tails": "%1$s was cut and roasted well by %2$s.",
@@ -63,6 +69,7 @@
   "death.attack.gogspells.summon_valkyrie": "%1$s was sent to Valhalla by %2$s, maybe?",
   "death.attack.gogspells.summon_witch": "%1$s killed in despair by %2$s.",
   "death.attack.gogspells.summon_arachne": "%1$s was dissolved into a cocktail by %2$s’s venom.",
+  "death.attack.gogspells.summon_siren": "%1$s was washed away by %2$s.",
 
   "ui.gogspells.extra_health": "%d Extra Health",
   "ui.gogspells.extra_damage": "%d Extra Attack Damage"

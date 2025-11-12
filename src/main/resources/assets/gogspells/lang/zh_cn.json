@@ -4,6 +4,8 @@
   "tooltip.item.gogspells.ancient_regal_fabric": "装备盖亚之赐时木乃伊的特殊掉落",
   "item.gogspells.grief_seed": "悲叹之种",
   "tooltip.item.gogspells.grief_seed": "装备盖亚之赐时魔女的特殊掉落",
+  "item.gogspells.siren_pearl": "塞壬珍珠",
+  "tooltip.item.gogspells.siren_pearl": "装备盖亚之赐时塞壬的特殊掉落",
   "item.gogspells.gaia_blessing": "盖亚之赐",
   "tooltip.item.gogspells.gaia_blessing": "某些怪物的特定战利品将获得额外掉落率",
 
@@ -18,6 +20,7 @@
   "entity.gogspells.summoned_witch": "被召唤的魔女",
   "entity.gogspells.summoned_arachne": "被召唤的阿拉克涅",
   "entity.gogspells.summoned_cave_spider": "被召唤的洞穴蜘蛛",
+  "entity.gogspells.summoned_siren": "被召唤的塞壬",
 
   "entity.gogspells.magic_web_projectile": "蛛网弹",
   "entity.gogspells.arachne_poison_arrow": "毒箭",
@@ -33,6 +36,7 @@
   "effect.gogspells.summon_valkyrie_timer": "已召唤瓦尔基里",
   "effect.gogspells.summon_witch_timer": "已召唤魔女",
   "effect.gogspells.summon_arachne_timer": "已召唤阿拉克涅",
+  "effect.gogspells.summon_siren_timer": "已召唤塞壬",
 
   "spell.gogspells.summon_ender_dragon_girl": "召唤末影龙女",
   "spell.gogspells.summon_nine_tails": "召唤九尾妖狐",
@@ -43,6 +47,7 @@
   "spell.gogspells.summon_valkyrie": "召唤瓦尔基里",
   "spell.gogspells.summon_witch": "魔女之夜",
   "spell.gogspells.summon_arachne": "是蜘蛛又怎样？",
+  "spell.gogspells.summon_siren": "召唤塞壬",
 
   "spell.gogspells.summon_ender_dragon_girl.guide": "召唤出末影龙女来为你作战。",
   "spell.gogspells.summon_nine_tails.guide": "召唤出九尾妖狐来为你作战。她会发射火焰箭。",
@@ -53,6 +58,7 @@
   "spell.gogspells.summon_valkyrie.guide": "召唤出瓦尔基里来为你作战。",
   "spell.gogspells.summon_witch.guide": "召唤出魔女来为你作战。她会使用法术和药水。",
   "spell.gogspells.summon_arachne.guide": "召唤出阿拉克涅来为你作战。",
+  "spell.gogspells.summon_siren.guide": "召唤出塞壬剑士、塞壬弓手、塞壬法师来为你作战。",
 
   "death.attack.gogspells.summon_ender_dragon_girl": "%1$s被%2$s撕碎了。",
   "death.attack.gogspells.summon_nine_tails": "%1$s被%2$s做成了火焰手撕肉。",
@@ -63,6 +69,7 @@
   "death.attack.gogspells.summon_valkyrie": "%1$s被%2$s送去了英灵殿，也许吧？",
   "death.attack.gogspells.summon_witch": "%1$s被%2$s杀死于绝望之中。",
   "death.attack.gogspells.summon_arachne": "%1$s被%2$s做成了怪味鸡尾酒。",
+  "death.attack.gogspells.summon_siren": "%2$s对%1$s进行了“清洗”。",
 
   "ui.gogspells.extra_health": "额外生命值：%d",
   "ui.gogspells.extra_damage": "额外攻击力：%d"
