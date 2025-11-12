@@ -71,6 +71,13 @@ public class GoGSpellsConfig {
     public static ForgeConfigSpec.DoubleValue summonedArachneBaseAttackDamage;
     public static ForgeConfigSpec.DoubleValue summonedArachneBonusATKSpellPowerRatio;
 
+    public static ForgeConfigSpec.BooleanValue summonSirenAllowLooting;
+    public static ForgeConfigSpec.DoubleValue summonedSirenBaseHealth;
+    public static ForgeConfigSpec.DoubleValue summonedSirenBonusHealthSpellPowerRatio;
+    public static ForgeConfigSpec.DoubleValue summonedSirenBaseAttackDamage;
+    public static ForgeConfigSpec.DoubleValue summonedSirenBonusATKSpellPowerRatio;
+    public static ForgeConfigSpec.DoubleValue gaiaBlessingExtraDropRateSiren;
+
     static {
 
 
@@ -253,6 +260,25 @@ public class GoGSpellsConfig {
         
         BUILDER.pop();
         
+        BUILDER.push("Summon Siren Spell");
+
+        summonSirenAllowLooting = BUILDER
+                .comment("Whether the Spell can be obtained from loot chests")
+                .define("summonSirenAllowLooting",false);
+        summonedSirenBaseHealth = BUILDER
+                .defineInRange("summonedSirenBaseHealth", 18.0f ,1, Integer.MAX_VALUE);
+        summonedSirenBonusHealthSpellPowerRatio = BUILDER
+                .comment("Determines how much bonus health summoned creatures gain from your Spell Power.")
+                .defineInRange("summonedSirenBonusHealthSpellPowerRatio", 0.2f,0, Integer.MAX_VALUE);
+        summonedSirenBaseAttackDamage = BUILDER
+                .defineInRange("summonedSirenBaseAttackDamage", 4.0F ,0,  Integer.MAX_VALUE);
+        summonedSirenBonusATKSpellPowerRatio = BUILDER
+                .comment("Determines how much bonus attack damage summoned creatures gain from your Spell Power.")
+                .defineInRange("summonedSirenBonusATKSpellPowerRatio", 0.2f,0, Integer.MAX_VALUE);
+        gaiaBlessingExtraDropRateSiren = BUILDER
+                .defineInRange("gaiaBlessingExtraDropRateSiren", 0.1, 0, 1.0);
+        BUILDER.pop();
+
         BUILDER.push("MISC");
 
         //build.define

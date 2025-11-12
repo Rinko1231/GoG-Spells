@@ -26,6 +26,8 @@ public class MobEffectRegistry {
     public static final RegistryObject<MobEffect> SUMMON_WITCH_TIMER;
     public static final RegistryObject<MobEffect> SUMMON_YUKI_ONNA_TIMER;
 
+    public static final RegistryObject<MobEffect> SUMMON_SIREN_TIMER;
+
 
 
     static {
@@ -48,6 +50,9 @@ public class MobEffectRegistry {
         SUMMON_WITCH_TIMER = MOB_EFFECT_DEFERRED_REGISTER.register("summon_witch_timer",
                 () -> new SummonTimer(MobEffectCategory.BENEFICIAL, 8947848));
         SUMMON_YUKI_ONNA_TIMER = MOB_EFFECT_DEFERRED_REGISTER.register("summon_yuki_onna_timer",
+                () -> new SummonTimer(MobEffectCategory.BENEFICIAL, 14671871));
+
+        SUMMON_SIREN_TIMER = MOB_EFFECT_DEFERRED_REGISTER.register("summon_siren_timer",
                 () -> new SummonTimer(MobEffectCategory.BENEFICIAL, 14671871));
     }
 

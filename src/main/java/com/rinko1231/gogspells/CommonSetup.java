@@ -1,9 +1,12 @@
 package com.rinko1231.gogspells;
 
+import com.rinko1231.gogspells.compat.traveloptics.entity.SummonedSiren;
+import com.rinko1231.gogspells.compat.traveloptics.init.EntityInit;
 import com.rinko1231.gogspells.init.EntityRegistry;
 import com.rinko1231.gogspells.entity.*;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 
@@ -26,14 +29,20 @@ public class CommonSetup {
                 SummonedYukiOnna.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_MUMMY.get(),
                 SummonedMummy.createAttributes().build());
-        event.put(EntityRegistry.SUMMONED_GRAVEMITE.get(),
-                SummonedGraveMite.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_VALKYRIE.get(),
                 SummonedValkyrie.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_WITCH.get(),
                 SummonedWitch.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_ARACHNE.get(),
                 SummonedArachne.createAttributes().build());
+
+        if (ModList.get().isLoaded("traveloptics")) {
+        event.put(EntityInit.SUMMONED_SIREN.get(),
+                SummonedSiren.createAttributes().build());
+        }
+
+        event.put(EntityRegistry.SUMMONED_GRAVEMITE.get(),
+                SummonedGraveMite.createAttributes().build());
         event.put(EntityRegistry.SUMMONED_CAVE_SPIDER.get(),
                 SummonedCaveSpider.createAttributes().build());
 

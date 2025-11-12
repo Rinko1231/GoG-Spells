@@ -1,6 +1,8 @@
 package com.rinko1231.gogspells;
 
 
+import com.rinko1231.gogspells.compat.traveloptics.init.EntityInit;
+import com.rinko1231.gogspells.compat.traveloptics.init.SpellInit;
 import com.rinko1231.gogspells.config.GoGSpellsConfig;
 
 import com.rinko1231.gogspells.init.*;
@@ -21,6 +23,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
@@ -45,6 +48,11 @@ public class GoGSpells {
 
         MobEffectRegistry.MOB_EFFECT_DEFERRED_REGISTER.register(modEventBus);
 
+        if (ModList.get().isLoaded("traveloptics")) {
+            SpellInit.TO_SPELLS.register(modEventBus);
+            EntityInit.TO_ENTITIES.register(modEventBus);
+        }
+
     }
 
     //好用的ResourceLocation
@@ -60,13 +68,37 @@ public class GoGSpells {
         LivingEntity entity = event.getEntity();
         DamageSource source = event.getSource();
         if (!(entity instanceof Mummy)) return;
-        ItemStack dropStack = new ItemStack(itemRegistry.ANCIENT_REGAL_FABRIC.get(), 1);
+
         Entity killer = source.getEntity();
         if (killer instanceof Player player) {
             if(!MyUtils.isEquipGaiaBlessing(player)) return;
             Random random = new Random();
             float roll = random.nextFloat();
             if (roll<= GoGSpellsConfig.gaiaBlessingExtraDropRateMummy.get()) {
+                ItemStack dropStack = new ItemStack(itemRegistry.ANCIENT_REGAL_FABRIC.get(), 1);
+                event.getDrops().add(new ItemEntity(
+                        entity.level(),
+                        entity.getX(), entity.getY(), entity.getZ(),
+                        dropStack
+                ));
+            }
+        }
+    }
+    //塞壬掉落
+    @SubscribeEvent
+    public void SirenDrops(LivingDropsEvent event) {
+        if (event.getEntity().level().isClientSide) return;
+        if (!ModList.get().isLoaded("traveloptics")) return;
+        LivingEntity entity = event.getEntity();
+        DamageSource source = event.getSource();
+        if (!(entity instanceof Siren)) return;
+        Entity killer = source.getEntity();
+        if (killer instanceof Player player) {
+            if(!MyUtils.isEquipGaiaBlessing(player)) return;
+            Random random = new Random();
+            float roll = random.nextFloat();
+            if (roll<= GoGSpellsConfig.gaiaBlessingExtraDropRateWitch.get()) {
+                ItemStack dropStack = new ItemStack(itemRegistry.SIREN_PEARL.get(), 1);
                 event.getDrops().add(new ItemEntity(
                         entity.level(),
                         entity.getX(), entity.getY(), entity.getZ(),
@@ -82,13 +114,14 @@ public class GoGSpells {
         LivingEntity entity = event.getEntity();
         DamageSource source = event.getSource();
         if (!(entity instanceof Witch)) return;
-        ItemStack dropStack = new ItemStack(itemRegistry.GRIEF_SEED.get(), 1);
+
         Entity killer = source.getEntity();
         if (killer instanceof Player player) {
             if(!MyUtils.isEquipGaiaBlessing(player)) return;
             Random random = new Random();
             float roll = random.nextFloat();
             if (roll<= GoGSpellsConfig.gaiaBlessingExtraDropRateWitch.get()) {
+                ItemStack dropStack = new ItemStack(itemRegistry.GRIEF_SEED.get(), 1);
                 event.getDrops().add(new ItemEntity(
                         entity.level(),
                         entity.getX(), entity.getY(), entity.getZ(),

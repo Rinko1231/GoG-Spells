@@ -36,6 +36,17 @@ import static net.minecraft.world.item.Rarity.EPIC;
 public class itemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, MOD_ID);
     //public static final DeferredHolder<Item, Item> DARK_CRYSTAL = ITEMS.register("dark_crystal", ()-> new Item(ItemPropertiesHelper.material().rarity(EPIC)));
+    public static final RegistryObject<Item> SIREN_PEARL = ITEMS.register("siren_pearl", ()-> new Item(ItemPropertiesHelper.material().rarity(EPIC))
+    {
+        @OnlyIn(Dist.CLIENT)
+        @Override
+        public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
+            super.appendHoverText(stack, worldIn, tooltip, flagIn);
+            String OriginalId = this.getDescriptionId();
+            String TooltipKey = "tooltip." + OriginalId;
+            tooltip.add(Component.translatable(ChatFormatting.BLUE + "" + I18n.get(TooltipKey)));
+        }
+    });
     public static final RegistryObject<Item> ANCIENT_REGAL_FABRIC = ITEMS.register("ancient_regal_fabric", ()-> new Item(ItemPropertiesHelper.material().rarity(EPIC))
     {
         @OnlyIn(Dist.CLIENT)

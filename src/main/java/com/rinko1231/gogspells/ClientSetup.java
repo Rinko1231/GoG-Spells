@@ -1,5 +1,7 @@
 package com.rinko1231.gogspells;
 
+import com.rinko1231.gogspells.compat.traveloptics.init.EntityInit;
+import com.rinko1231.gogspells.compat.traveloptics.renderer.SummonedSirenRenderer;
 import com.rinko1231.gogspells.init.EntityRegistry;
 
 import com.rinko1231.gogspells.renderer.summonedArachne.SummonedArachneRenderer;
@@ -20,6 +22,7 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 
@@ -38,6 +41,9 @@ public class ClientSetup {
         event.registerEntityRenderer(EntityRegistry.SUMMONED_VALKYRIE.get(), SummonedValkyrieRenderer::new);
         event.registerEntityRenderer(EntityRegistry.SUMMONED_WITCH.get(), SummonedWitchRenderer::new);
         event.registerEntityRenderer(EntityRegistry.SUMMONED_ARACHNE.get(), SummonedArachneRenderer::new);
+
+        if (ModList.get().isLoaded("traveloptics")) {
+        event.registerEntityRenderer(EntityInit.SUMMONED_SIREN.get(), SummonedSirenRenderer::new);}
 
         //Sub Summon
         event.registerEntityRenderer(EntityRegistry.SUMMONED_GRAVEMITE.get(), SummonedGraveMiteRenderer::new);

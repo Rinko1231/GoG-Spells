@@ -72,7 +72,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 import java.util.UUID;
 
-import static com.rinko1231.gogspells.init.MobEffectRegistry.SUMMON_ARACHNE_TIMER;
+import static com.rinko1231.gogspells.init.MobEffectRegistry.SUMMON_WITCH_TIMER;
 
 public class SummonedWitch extends AbstractGaiaEntity implements RangedAttackMob, MagicSummon {
     private static final EntityDataAccessor<Boolean> IS_DRINKING;
@@ -199,7 +199,7 @@ public class SummonedWitch extends AbstractGaiaEntity implements RangedAttackMob
         }
     }
     public void onRemovedFromWorld() {
-        this.onRemovedHelper(this, (SummonTimer)SUMMON_ARACHNE_TIMER.get());
+        this.onRemovedHelper(this, (SummonTimer)SUMMON_WITCH_TIMER.get());
         super.onRemovedFromWorld();
     }
 
