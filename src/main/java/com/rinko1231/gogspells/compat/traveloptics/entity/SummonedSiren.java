@@ -4,7 +4,8 @@ import com.gametechbc.traveloptics.entity.projectiles.coral_bolt.BlueCoralBoltPr
 import com.gametechbc.traveloptics.entity.projectiles.coral_bolt.PinkCoralBoltProjectile;
 import com.gametechbc.traveloptics.entity.projectiles.coral_bolt.RedCoralBoltProjectile;
 import com.gametechbc.traveloptics.entity.projectiles.coral_bolt.YellowCoralBoltProjectile;
-import com.gametechbc.traveloptics.entity.spells.hydroshot.HydroshotProjectile;
+import com.gametechbc.traveloptics.entity.projectiles.hydroshot.HydroshotProjectile;
+
 import com.rinko1231.gogspells.api.AnotherMagicManager;
 import com.rinko1231.gogspells.api.MagicSpell;
 import com.rinko1231.gogspells.compat.traveloptics.init.EntityInit;
@@ -61,7 +62,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 import static com.gametechbc.traveloptics.api.init.TravelopticsAttributes.AQUA_MAGIC_RESIST;
-import static com.rinko1231.gogspells.init.MobEffectRegistry.SUMMON_ARACHNE_TIMER;
 import static com.rinko1231.gogspells.init.MobEffectRegistry.SUMMON_SIREN_TIMER;
 import static net.minecraft.world.item.Items.BOW;
 
