@@ -182,7 +182,7 @@ dependencies {
     //implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6833927")
     //implementation fg.deobf("curse.maven:tinkers-construct-74072:6777068")
     runtimeOnly fg.deobf("curse.maven:mantle-74924:6819217")
-    implementation fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:6901041")
+    implementation fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:7185948")
     runtimeOnly fg.deobf("curse.maven:apothic-attributes-898963:5634071")
     runtimeOnly fg.deobf("curse.maven:placebo-283644:6274231")
 
