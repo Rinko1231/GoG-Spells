@@ -1,6 +1,7 @@
 package com.rinko1231.gogspells;
 
 
+import com.mojang.logging.LogUtils;
 import com.rinko1231.gogspells.compat.traveloptics.init.EntityInit;
 import com.rinko1231.gogspells.compat.traveloptics.init.SpellInit;
 import com.rinko1231.gogspells.config.GoGSpellsConfig;
@@ -10,8 +11,13 @@ import com.rinko1231.gogspells.init.*;
 import com.rinko1231.gogspells.utils.MyUtils;
 import gaia.entity.*;
 import gaia.registry.GaiaRegistry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,6 +26,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,9 +34,13 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Random;
 
+@SuppressWarnings("removal")
 @Mod(GoGSpells.MOD_ID)
 public class GoGSpells {
     public static final String MOD_ID = "gogspells";
@@ -39,7 +50,7 @@ public class GoGSpells {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         GoGSpellsConfig.setup();
         itemRegistry.ITEMS.register(modEventBus);
-
+        modEventBus.addListener(this::addPackFinders);
         TabInit.TABS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         EntityRegistry.register(modEventBus);
@@ -54,6 +65,28 @@ public class GoGSpells {
         }
 
     }
+    public static final Logger LOGGER = LogUtils.getLogger();
+    public void addPackFinders(AddPackFindersEvent event) {
+        LOGGER.debug("addPackFinders");
+
+        try {
+            if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+                addBuiltinPack(event, "legacy_gogspells_texture", Component.literal("Legacy GoG Spells Texture"));
+            }
+        } catch (IOException var3) {
+            LOGGER.error("Failed to load a builtin resource pack! If you are seeing this message, please report an issue to the author");
+        }
+
+    }
+
+    private static void addBuiltinPack(AddPackFindersEvent event, String filename, Component displayName) throws IOException {
+        filename = "builtin_resource_packs/" + filename;
+        String id = "builtin/" + filename;
+        Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource(new String[]{filename});
+        Pack pack = Pack.readMetaAndCreate(id, displayName, false, (path) -> new PathPackResources(path, resourcePath,true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
+        event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+    }
+
 
     //好用的ResourceLocation
     public static ResourceLocation id(@NotNull String path) {
